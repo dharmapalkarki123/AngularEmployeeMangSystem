@@ -10,7 +10,7 @@ export class Employee {
   }
 
   onLogin(obj: any){
-    return this.http.post("https://dummyjson.com/auth/login", obj)
+    return this.http.post("http://localhost:8080/auth/signup", obj)
   }
 
 }
