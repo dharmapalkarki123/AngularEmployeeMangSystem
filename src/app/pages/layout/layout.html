@@ -1,1 +1,52 @@
-<p>layout works!</p>
+<div class="sidebar">
+  <div class="logo">
+    <h2>EMS</h2>
+  </div>
+
+  <ul class="nav-links">
+    <li>
+      <a routerLink="/dashboard" routerLinkActive="active">
+        <span>🏠</span>
+        <p>Dashboard</p>
+      </a>
+    </li>
+
+    <li>
+      <a routerLink="/leave" routerLinkActive="active">
+        <span>👨‍💼</span>
+        <p>Employees</p>
+      </a>
+    </li>
+
+    <li>
+      <a routerLink="/add-employee" routerLinkActive="active">
+        <span>➕</span>
+        <p>Add Employee</p>
+      </a>
+    </li>
+
+    <li>
+      <a routerLink="/departments" routerLinkActive="active">
+        <span>🏢</span>
+        <p>Departments</p>
+      </a>
+    </li>
+
+    <li>
+      <a routerLink="/settings" routerLinkActive="active">
+        <span>⚙️</span>
+        <p>Settings</p>
+      </a>
+    </li>
+
+    <li class="logout">
+      <a routerLink="/logout">
+        <span>🚪</span>
+        <p>Logout</p>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+<router-outlet></router-outlet>
