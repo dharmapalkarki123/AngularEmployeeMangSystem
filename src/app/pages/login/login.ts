@@ -3,7 +3,8 @@ import {FormsModule} from '@angular/forms';
 import {LoginModel} from '../../model/Employee.model';
 
 import {Router} from '@angular/router';
-import {Employee} from '../../employee';
+
+import {EmployeeService} from '../../employee-service';
 
 
 
@@ -17,15 +18,17 @@ export class Login {
 
   loginObj: LoginModel= new LoginModel();
 
-  employeeService=inject(Employee)
+  employeeService1=inject(EmployeeService)
 
   router = inject(Router)
-  onLogin(res:any){
-return this.employeeService.onLogin(this.loginObj).subscribe({
+
+  onLogin(){
+    debugger
+return this.employeeService1.onLogin(this.loginObj).subscribe({
   next:(result:any)=>{
-    if(result.status){
+    if(result.result){
       alert("Login Success");
-      localStorage.setItem('leaveUser', JSON.stringify(result.jwt));
+      localStorage.setItem('leaveUser', JSON.stringify(result.data));
       this.router.navigateByUrl("/dashboard")
     }else{
       alert(result.message)
@@ -38,5 +41,7 @@ return this.employeeService.onLogin(this.loginObj).subscribe({
   }
 })
   }
+
+
 
 }

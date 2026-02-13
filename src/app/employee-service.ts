@@ -4,13 +4,11 @@ import {HttpClient} from '@angular/common/http';
 @Injectable({
   providedIn: 'root',
 })
-export class Employee {
-
+export class EmployeeService {
   constructor(private http: HttpClient) {
   }
 
   onLogin(obj: any){
-    return this.http.post("http://localhost:8080/auth/signup", obj)
+    return this.http.post("https://freeapi.miniprojectideas.com/api/EmployeeLeave/Login", obj)
   }
-
 }

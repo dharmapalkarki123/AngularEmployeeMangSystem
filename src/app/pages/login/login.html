@@ -1,56 +1,19 @@
-<!--<div class="login-container">-->
-<!--  <div class="login-card">-->
-<!--    <h2>Login</h2>-->
-
-<!--    <form>-->
-
-<!--      <div class="form-group">-->
-<!--        <label for="email" [(ngModel)]="loginObj.firstName" ]>FirstName</label>-->
-<!--        <input type="email" id="firstname" placeholder="Enter your First Name" required />-->
-<!--      </div>-->
-
-<!--      <div class="form-group">-->
-<!--        <label for="email" [(ngModel)]="loginObj.lastName" ]>Last Name</label>-->
-<!--        <input type="email" id="lastname" placeholder="Enter your Last Name" required />-->
-<!--      </div>-->
-
-<!--      <div class="form-group">-->
-<!--        <label for="email" [(ngModel)]="loginObj.emailId" ]>Email</label>-->
-<!--        <input type="email" id="email" placeholder="Enter your email" required />-->
-<!--      </div>-->
-
-<!--      <div class="form-group">-->
-<!--        <label for="password" [(ngModel)]="loginObj.password">Password</label>-->
-<!--        <input type="password" id="password" placeholder="Enter your password" required />-->
-<!--      </div>-->
-
-<!--      <button type="submit" (click)="onLogin(this.loginObj)" >Login</button>-->
-
-<!--      <p class="register-text">-->
-<!--        Don't have an account? <a href="#">Register</a>-->
-<!--      </p>-->
-<!--    </form>-->
-<!--  </div>-->
-<!--</div>-->
-
-
-<div class="login-wrapper">
+<div class="d-flex justify-content-center align-items-center" style="height: calc(100vh - 56px);">
   <div class="login-card">
-    <h2>LOGIN</h2>
-    <p class="subtitle">Please enter your login and password!</p>
-
-    <input type="text" placeholder="Username" />
-    <input type="password" placeholder="Password" />
-
-    <a class="forgot" href="#">Forgot password?</a>
-
-    <button class="login-btn">Login</button>
-
-    <div class="social">
-      <span>f</span>
-      <span>t</span>
-      <span>g+</span>
-    </div>
+    <h3>Login</h3>
+    <form>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email address</label>
+        <input type="email" [(ngModel)]="loginObj.emailId"  name="email" class="form-control" id="email" placeholder="Enter email">
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" [(ngModel)]="loginObj.password" name="password" class="form-control" id="password" placeholder="Password">
+      </div>
+      <button type="submit" class="btn btn-login w-100" (click)="onLogin()">Login</button>
+      <div class="form-text">
+        <small>Don't have an account? <a href="#">Register</a></small>
+      </div>
+    </form>
   </div>
 </div>
-
