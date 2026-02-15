@@ -6,9 +6,6 @@ export class LoginModel{
 
 
 
-
-
-
   constructor() {
 
     this.emailId='';
@@ -16,5 +13,26 @@ export class LoginModel{
 
   }
 
+
+}
+
+export interface ApiResponseModel{
+
+  message:string,
+  result:boolean,
+  data:any
+
+
+
+}
+
+export  interface EmployeeList{
+  empName: string,
+  "empId": number,
+  "empCode": number,
+  "empEmailId": string,
+  "empDesignation": string,
+  "role": string,
+  "mobile": string
 
 }

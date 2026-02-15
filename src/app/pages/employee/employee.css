@@ -1,0 +1,7 @@
+
+
+/* layout.css or global styles */
+.main-content {
+  margin-left: 240px;   /* SAME as sidebar width */
+  padding: 20px;
+}
