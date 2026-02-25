@@ -1,11 +1,13 @@
 import {Component, ElementRef, inject, OnInit, ViewChild} from '@angular/core';
 import {EmployeeService} from '../../employee-service';
-import {ApiResponseModel, EmployeeList} from '../../model/Employee.model';
+import {AddEmployee, ApiResponseModel, EmployeeList} from '../../model/Employee.model';
 import {FormsModule} from '@angular/forms';
+import {Observable} from 'rxjs';
+import {AsyncPipe, JsonPipe} from '@angular/common';
 
 @Component({
   selector: 'app-employee',
-  imports: [FormsModule],
+  imports: [FormsModule,AsyncPipe,JsonPipe],
   templateUrl: './employee.html',
   styleUrl: './employee.css',
 })
@@ -15,21 +17,18 @@ export class Employee implements OnInit{
 
   @ViewChild("newmodal") newModel!: ElementRef;
 
+  deptList$:Observable<any[]>=new Observable<any[]>
+
+  roleList$:Observable<any[]>=new Observable<any[]>
+
   employeeList: EmployeeList[] = [];
 
-  employee = {
-    employeeId: 0,
-    employeeName: '',
-    contactNo: '',
-    emailId: '',
-    deptId: 0,
-    password: '',
-    gender: '',
-    role: ''
-  };
+  employee: AddEmployee=new AddEmployee();
 
   ngOnInit() {
     this.getEmployee();
+    this.deptList$=this.employeeService.getDept()
+    this.roleList$=this.employeeService.getRole()
   }
 
   getEmployee() {

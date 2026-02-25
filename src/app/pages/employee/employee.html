@@ -103,13 +103,23 @@
           </div>
 
           <!-- Department -->
-          <div class="mb-3">
-            <label class="form-label">Department ID</label>
-            <input type="number"
-                   class="form-control"
-                   name="deptId"
-                   [(ngModel)]="employee.deptId"
-                   required />
+          <div class="row">
+            <div class="col-md-6">
+              <div class="md-3">
+
+                <label for="deptId" class="form-label">Department</label>
+                <select class="form-select" id="deptId" required>
+                  <option value="">Select Department</option>
+                  @for(item of deptList$ |async; track $index){
+                    <option [value]="item.deptId">{{item.deptName}}</option>
+                  }
+                </select>
+
+              </div>
+
+            </div>
+
+
           </div>
 
           <!-- Gender -->
@@ -127,16 +137,23 @@
           </div>
 
           <!-- Role -->
-          <div class="mb-3">
-            <label class="form-label">Role</label>
-            <select class="form-select"
-                    name="role"
-                    [(ngModel)]="employee.role"
-                    required>
-              <option value="">Select Role</option>
-              <option value="Admin">Admin</option>
-              <option value="Employee">Employee</option>
-            </select>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="md-3">
+
+                <label for="roleId" class="form-label">Role</label>
+                <select class="form-select" id="roleId" required>
+                  <option value="">Select Role</option>
+                  @for(item of roleList$ |async; track $index){
+                    <option [value]="item.roleId">{{item.role}}</option>
+                  }
+                </select>
+
+              </div>
+
+            </div>
+
+
           </div>
 
           <!-- Password -->
