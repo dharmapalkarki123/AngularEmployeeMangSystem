@@ -7,7 +7,7 @@ import {AsyncPipe, JsonPipe} from '@angular/common';
 
 @Component({
   selector: 'app-employee',
-  imports: [FormsModule,AsyncPipe,JsonPipe],
+  imports: [FormsModule,AsyncPipe],
   templateUrl: './employee.html',
   styleUrl: './employee.css',
 })
@@ -26,9 +26,11 @@ export class Employee implements OnInit{
   employee: AddEmployee=new AddEmployee();
 
   ngOnInit() {
+
     this.getEmployee();
     this.deptList$=this.employeeService.getDept()
     this.roleList$=this.employeeService.getRole()
+
   }
 
   getEmployee() {
@@ -50,6 +52,43 @@ export class Employee implements OnInit{
   addEmployee() {
     console.log('Employee Data:', this.employee);
     this.closeModel();
+  }
+
+  // onSaveEmployee(){
+  //
+  //
+  //   this.employeeService.onSaveNewEmp(this.employee).subscribe({
+  //     next:(res:any)=>{
+  //       if(res.result){
+  //         this.getEmployee();
+  //         alert("Employee created sucessfully")
+  //       }else{
+  //
+  //         alert(res.message)
+  //
+  //       }
+  //     },
+  //     error:()=>{
+  //
+  //     }
+  //
+  //   })
+  //
+  //
+  // }
+
+  onSaveEmployee(){
+    this.employeeService.onSaveNewEmp(this.employee).subscribe({
+      next:(res:any)=>{
+        console.log("Saved:", res);
+        this.getEmployee();
+        alert("Employee created successfully");
+      },
+      error:(err)=>{
+        console.error(err);
+        alert("Employee save failed");
+      }
+    });
   }
 
 }
