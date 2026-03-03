@@ -1,1 +1,61 @@
-<p>leave works!</p>
+<div class="main-content">
+
+  <!-- Header Row -->
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h4 class="mb-0">Leave Management</h4>
+
+    <button class="btn btn-sm btn-primary">
+      <i class="fas fa-plus"></i> Add Leave Request
+    </button>
+  </div>
+
+  <!-- Tabs -->
+  <div class="mb-3">
+    <button class="btn btn-sm btn-light me-2">My Leaves</button>
+    <button class="btn btn-sm btn-primary">Leave Requests</button>
+  </div>
+
+  <!-- Pending Approval -->
+  <h6 class="text-warning mb-2">Pending Approval</h6>
+
+  <!-- Table -->
+  <div class="container-fluid p-0">
+    <div class="row">
+      <div class="col-12">
+
+        <table class="table table-bordered table-striped w-100">
+          <thead class="table-dark">
+          <tr>
+            <th>LEAVE ID</th>
+            <th>EMPLOYEE</th>
+            <th>LEAVE TYPE</th>
+            <th>FROM DATE</th>
+            <th>TO DATE</th>
+            <th>DAYS</th>
+            <th>ACTIONS</th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <!-- API DATA WILL COME HERE -->
+          <!--
+          @for (leave of leaveList; track $index) {
+            <tr>
+              ...
+            </tr>
+          }
+          -->
+
+          <tr>
+            <td colspan="7" class="text-center text-muted">
+              No leave requests found
+            </td>
+          </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </div>
+
+</div>
